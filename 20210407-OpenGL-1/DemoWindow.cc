@@ -8,14 +8,14 @@
 #include "DemoWindow.h"
 
 DemoWindow::DemoWindow(int width, int height)
-: Window(width, height)
+: Window(width = 800, height = 600)
 {
 	set_title("OpenGL Demo Window");
 }
 
 void DemoWindow::setup_gl()
 {
-	glClearColor(0.2f, 0.4f, 0.7f, 1.0f);
+	glClearColor(0.4f, 0.4f, 0.7f, 1.0f);
 
 	glMatrixMode(GL_PROJECTION);
 	gluPerspective(
@@ -53,7 +53,7 @@ void cube(double cl1,
 
 void cube_all(){
 	glBegin(GL_QUADS);
-		cube( 1.0, 0.0,  0.0,  // Нижняя грань, красная
+		cube( 0.0, 0.0, 0.0,  // Нижняя грань, черная
 			 -1.0, 1.0, -1.0,
 			  1.0, 1.0, -1.0,
 			  1.0,-1.0, -1.0,
@@ -83,7 +83,7 @@ void cube_all(){
 			  1.0,-1.0,  1.0,
 			 -1.0,-1.0,  1.0
 			 );
-		cube( 0.3, 1.0,  0.8,  // Боковая грань, светло-зеленый
+		cube( 1.0, 0.0, 1.0,  // Боковая грань, светло-зеленый
 			 -1.0,-1.0, -1.0,
 			 -1.0, 1.0, -1.0,
 			 -1.0, 1.0,  1.0,
@@ -152,7 +152,7 @@ void DemoWindow::render()
 
 void DemoWindow::update()
 {
-	_cube_angle += 0.1;
+	_cube_angle += 1;
 	if (_cube_angle >= 360.0)
 		_cube_angle -= 360.0;
 }
